@@ -110,8 +110,9 @@ def processOrder(request):
 			order=order,
 			address=data['shipping']['address'],
 			city=data['shipping']['city'],
-			state=data['shipping']['state'],
+			state=data['shipping']['country'],
 			zipcode=data['shipping']['zipcode'],
+            phone=data['shipping']['phone'],
 			)
 	else:
 		print('User is not logged in')
