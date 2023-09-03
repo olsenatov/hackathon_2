@@ -32,7 +32,7 @@
                         <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
                     </div>
                     <div class="form-field">
-                        <input class="form-control" type="text" name="country" placeholder="Zip code..">
+                        <input class="form-control" type="text" name="phone" placeholder="Phone Number...">
                     </div>
                 </div>
                 <hr>
@@ -43,6 +43,7 @@
             <br>
 			<div class="box-element hidden" id="payment-info">
 				<small>Paypal Options</small>
+                <button id="make-payment">Pay</button>
 			</div>
 
         </div>
@@ -68,4 +69,25 @@
         </div>
     </div>
 </div>
+<script type='text/javascript'>
+    let shipping = '{{order.shipping}}'
+    if(shipping == 'False'){
+        document.getElementById('shipping-info').innerHTML = ''
+    }
+    let form = document.getElementById('form')
+    form.addEventListener('submit', function(e) {
+    e.preventDefault()
+    console.log('Form submitted')
+    document.getElementById('form-button').classList.add('hidden');
+    document.getElementById('payment-info').classList.remove('hidden');
+    })
+    document.getElementById('make-payment').addEventListener('click', function(e){
+        submitFormData()
+    })
+    function submitFormData(){
+        console.log('payment button clicked')
+    } 
+
+    
+</script>
 {% endblock content %}

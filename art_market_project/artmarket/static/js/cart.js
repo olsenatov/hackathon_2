@@ -1,4 +1,4 @@
-console.log('Hello World, this is cart')
+
 
 let updateBtns = document.getElementsByClassName('update-cart')
 
@@ -36,6 +36,7 @@ function updateUserOrder(productId, action) {
         })
 
         .then((data ) => {
-            return response.json('data', data)
+            console.log('data:', data)
+            location.reload()
          })
 }
